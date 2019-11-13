@@ -25,19 +25,19 @@
       <div class="info-content">
         <p class="info-title">相关资讯</p>
         <ul class="info-wrap">
-          <li class="info-item">
+          <li class="info-item" v-for="(item,index) in homeList" :key="index">
             <div class="info-left">
-              <p>政策标题</p>
-              <p>政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题</p>
+              <p class="title">{{item.title}}</p>
+              <p class="desc">{{item.desc}}</p>
               <p>
                 发布时间：
-                <span>2019.02.23</span>
-                <span>236</span>
+                <span>{{item.time}}</span>
+                <span class="message">{{item.message}}</span>
               </p>
             </div>
             <div class="info-right">
               <div class="info-img">
-                <img src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+                <img :src="item.img" />
               </div>
             </div>
           </li>
@@ -51,6 +51,40 @@ export default {
   name: "car-page",
   data() {
     return {
+      homeList: [
+        {
+          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          message: "236",
+          time: "2019.02.23",
+          title: "政策标题",
+          desc:
+            "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
+        },
+        {
+          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          message: "236",
+          time: "2019.02.23",
+          title: "政策标题",
+          desc:
+            "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
+        },
+        {
+          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          message: "236",
+          time: "2019.02.23",
+          title: "政策标题",
+          desc:
+            "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
+        },
+        {
+          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          message: "236",
+          time: "2019.02.23",
+          title: "政策标题",
+          desc:
+            "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
+        }
+      ],
       swiperList: [
         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png",
         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png",
@@ -137,17 +171,33 @@ export default {
       }
       .info-wrap {
         overflow: hidden;
-        padding: 15px;
-        border-bottom: 15px solid #f2f3f5;
+        margin-bottom: 100px;
         .info-item {
-          float: left;
-          width: 70vw;
+          display: flex;
+          font-size: 0.3rem;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 15px solid #f2f3f5;
+          padding: 15px;
           .info-left {
-            float: left;
-            width: 70vw;
+            width: 64vw;
+            .title {
+              margin: 0;
+              font-weight: 600;
+            }
+            .desc {
+              color: #999;
+              overflow: hidden; /*必须结合的属性,当内容溢出元素框时发生的事情*/
+              text-overflow: ellipsis; /*可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。*/
+              display: -webkit-box; /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+              -webkit-line-clamp: 2; /*用来限制在一个块元素显示的文本的行数。*/
+              -webkit-box-orient: vertical; /*必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+            }
+            .message {
+              float: right;
+            }
           }
           .info-right {
-            margin-left: 70vw;
             .info-img {
               width: 100px;
               /* height: 100px; */

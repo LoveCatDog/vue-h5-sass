@@ -1,7 +1,7 @@
 <template>
   <div class="help-main">
     <header>
-      <img src="https://pic.cnblogs.com/avatar/1048550/20180630214942.png" class="header-img" />
+      <img src="@/assets/images/userImg.png" class="header-img" />
       <p>事故救援</p>
     </header>
     <div class="help-wrap">
@@ -21,6 +21,7 @@
 </template>
 <style lang="scss" scoped>
 .help-main {
+  font-size: 0.34rem;
   .header-img {
     border-radius: 50%;
     width: 100px;

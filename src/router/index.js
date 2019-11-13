@@ -13,6 +13,7 @@ import Message from '@/page/Message/index.vue'; //救援
 import My from '@/page/My/index.vue'; //救援
 import MyCar from "@/view/Car/myCar.vue"; //我的车辆
 import MyCarDetail from "@/view/Car/MyCarDetail.vue"; //我的车辆---车辆详情
+import UserInfoDetail from "@/view/userInfo/details.vue"; //用户详情
 
 
 
@@ -86,13 +87,23 @@ const newRouter = new VueRouter({
             meta: {
                 title: '我的'
             },
-            // },
-            // {
-            //     path: '/detail/:id',
-            //     name: 'detail',
-            //     component(resolve) {
-            //         require(['@/view/detail/index.vue'], resolve)
-            //     }
+        },
+        {
+            path: '/my/details/:id',
+            name: "UserInfoDetail",
+            component: UserInfoDetail,
+            meta: {
+                title: '用户详情'
+            }
+        },
+
+        {
+            path: '/mycar',
+            name: 'MyCar',
+            component: MyCar,
+            meta: {
+                title: '我的车辆'
+            },
         },
         {
             path: '/mycar/:id',
@@ -101,14 +112,6 @@ const newRouter = new VueRouter({
             meta: {
                 title: '车辆详情'
             }
-        },
-        {
-            path: '/mycar',
-            name: 'MyCar',
-            component: MyCar,
-            meta: {
-                title: '我的车辆'
-            },
         },
         {
             path: '*',
