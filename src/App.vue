@@ -1,24 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="loading-bar" :class="nowStatus">
+      <span class="press"></span>
+    </div>
+    <CarHeader />
+    <div class="app-init">
+      <transition>
+        <router-view></router-view>
+      </transition>
+    </div>
+    <CarFooter />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+import CarHeader from "@/components/CarHeader.vue";
+import CarFooter from "@/components/CarFooter.vue";
+import { mapGetters } from "vuex";
+import Rem from "@/assets/js/rem.js";
+new Rem();
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    CarHeader,
+    CarFooter
+  },
+  computed: {
+    ...mapGetters(["nowStatus"])
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

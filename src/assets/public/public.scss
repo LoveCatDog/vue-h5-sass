@@ -1,0 +1,38 @@
+/******公共部分 start*********/
+.loading-bar {
+    position: absolute;
+    z-index: 400;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 0;
+
+    span.press {
+        display: block;
+        float: left;
+        height: 100%;
+        width: 0;
+        background: #ffcb30;
+        transition: all .4s cubic-bezier(.55, 0, .1, 1)
+    }
+
+    &.loading span.press {
+        width: 10%;
+        opacity: 1;
+    }
+
+    &.end span.press {
+        width: 100%;
+        opacity: 1;
+    }
+
+    &.hide span.press {
+        opacity: 0;
+        width: 100%;
+    }
+
+    &.normal span.press {
+        opacity: 0;
+        width: 0%;
+    }
+}
