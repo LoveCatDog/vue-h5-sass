@@ -3,12 +3,13 @@
     <div class="loading-bar" :class="nowStatus">
       <span class="press"></span>
     </div>
-    <CarHeader />
+    <CarHeader :msg="navTitle" />
     <div class="app-init">
       <transition>
         <router-view></router-view>
       </transition>
     </div>
+
     <CarFooter />
   </div>
 </template>
@@ -22,12 +23,26 @@ import Rem from "@/assets/js/rem.js";
 new Rem();
 export default {
   name: "app",
+  data() {
+    return {
+      navT1itle: "bbb"
+    };
+  },
   components: {
     CarHeader,
     CarFooter
   },
+
+  watch: {
+    $route() {
+      this.$store.commit("getNavTitle", this.$route.meta.title);
+    }
+  },
   computed: {
-    ...mapGetters(["nowStatus"])
+    ...mapGetters(["nowStatus"]),
+    navTitle() {
+      return this.$store.state.localStorageStore.navTitle;
+    }
   }
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="help-main">
     <header>
       <img src="@/assets/images/userImg.png" class="header-img" />
-      <p>事故救援</p>
+      <p class="header-title">事故救援</p>
     </header>
     <div class="help-wrap">
       <h3 class="help-title">救援须知</h3>
@@ -22,6 +22,12 @@
 <style lang="scss" scoped>
 .help-main {
   font-size: 0.34rem;
+  header {
+    padding: 0.5rem;
+  }
+  .header-title {
+    padding-top: 0.5rem;
+  }
   .header-img {
     border-radius: 50%;
     width: 100px;
@@ -31,6 +37,11 @@
     padding: 15px;
     .help-desc {
       color: #999;
+      padding: 0.3rem 0 0.5rem;
+      line-height: 0.5rem;
+    }
+    .help-title {
+      line-height: 1rem;
     }
   }
 }

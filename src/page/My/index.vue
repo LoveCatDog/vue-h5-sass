@@ -19,8 +19,8 @@
         <van-cell
           :value="cellItem.rightConent"
           is-link
-          v-for="cellItem in cellList"
-          :key="cellItem"
+          v-for="(cellItem,index) in cellList"
+          :key="index"
         >
           <!-- 使用 title 插槽来自定义标题 -->
           <template slot="title">

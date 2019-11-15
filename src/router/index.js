@@ -8,12 +8,28 @@ import Error404 from '@/page/error404.vue'; //页面404
 import Home from '@/page/Home/index.vue'; //首页
 import Register from '@/page/Login/register.vue'; //注册
 
+
+import Cars from '@/page/Cars/index.vue'; //车辆
 import Help from '@/page/Help/index.vue'; //救援
-import Message from '@/page/Message/index.vue'; //救援
-import My from '@/page/My/index.vue'; //救援
-import MyCar from "@/view/Car/myCar.vue"; //我的车辆
-import MyCarDetail from "@/view/Car/MyCarDetail.vue"; //我的车辆---车辆详情
+import Message from '@/page/Message/index.vue'; //消息
+
+import My from '@/page/My/index.vue'; //我的
+
+//主页五大主题
+import MyCar from "@/view/Home/myCar.vue"; //我的车辆
+import MyCarDetail from "@/view/Home/MyCarDetail.vue"; //我的车辆---车辆详情
+import Lendrepay from "@/view/Home/Lendrepay.vue"; //借还款
+import LendMoney from "@/view/Home/LendMoney.vue"; //借款
+import RepayMoney from "@/view/Home/RepayMoney.vue"; //还款
+
+
+
+
 import UserInfoDetail from "@/view/userInfo/details.vue"; //用户详情
+
+import StudyChild from "@/view/Study/child.vue"; //子组件
+import StudyParent from "@/view/Study/parent.vue"; //父组件
+
 
 
 
@@ -26,7 +42,7 @@ VueRouter.prototype.openPage = function (link, query) {
     this.push({
         path: link,
         query: _.assign({
-            thme: new Date().getTime()
+            token: new Date().getTime()
         }, query || {})
     })
 }
@@ -65,6 +81,15 @@ const newRouter = new VueRouter({
             },
         },
         {
+            path: '/cars',
+            name: 'Cars',
+            component: Cars,
+            meta: {
+                title: '车辆'
+            },
+        },
+
+        {
             path: '/help',
             component: Help,
             name: 'Help',
@@ -96,7 +121,6 @@ const newRouter = new VueRouter({
                 title: '用户详情'
             }
         },
-
         {
             path: '/mycar',
             name: 'MyCar',
@@ -114,6 +138,31 @@ const newRouter = new VueRouter({
             }
         },
         {
+            path: '/lendrepay',
+            name: 'Lendrepay',
+            component: Lendrepay,
+            meta: {
+                title: '借还款'
+            },
+        },
+        {
+            path: '/lendmoney',
+            name: 'LendMoney',
+            component: LendMoney,
+            meta: {
+                title: '借款'
+            },
+        },
+        {
+            path: '/repaymoney',
+            name: 'RepayMoney',
+            component: RepayMoney,
+            meta: {
+                title: '还款'
+            },
+        },
+
+        {
             path: '*',
             component: Error404,
             name: 'Error404',
@@ -122,6 +171,21 @@ const newRouter = new VueRouter({
                 title: '404'
             }, //路由元信息
         },
+        {
+            path: '/study/child',
+            component: StudyChild,
+            name: 'StudyChild',
+            meta: {
+                title: '子组件'
+            }
+        }, {
+            path: '/study/parent',
+            component: StudyParent,
+            name: 'StudyParent',
+            meta: {
+                title: '父组件'
+            }
+        }
 
         /**
          * <!-- 带查询参数，下面的结果为 /register?plan=private -->

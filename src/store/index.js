@@ -1,8 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import persistedState from 'vuex-persistedstate'
+import * as Cookies from 'js-cookie'
 
-Vue.use(Vuex)
+Vue.use(Vuex); //将Vuex注册到vue中
 
+
+// 
+const localStorageStore = {
+    // 定义状态
+    state: {
+        navTitle: JSON.parse(localStorage.getItem('navTitle')) || {},
+
+        urlPath: JSON.parse(localStorage.getItem('urlPath')) || {}, //保存一个对象
+    },
+    // 修改状态
+    mutations: {
+        setInfo(state, path) {
+            state.urlPath = path
+        },
+        getNavTitle(state, value) {
+
+            state.navTitle = value
+        }
+    }
+};
+
+// 头部加载条
 const Apploading = {
     state: {
         nowStatus: 'loading'
@@ -22,5 +46,16 @@ const Apploading = {
 export default new Vuex.Store({
     modules: {
         Apploading,
-    }
+        localStorageStore
+    },
+    plugins: [persistedState({
+        // storage: window.sessionStorage
+        storage: {
+            getItem: key => Cookies.get(key),
+            setItem: (key, value) => Cookies.set(key, value, {
+                expires: 7, //设置7天之后过期
+            }),
+            removeItem: key => Cookies.remove(key)
+        },
+    })]
 })

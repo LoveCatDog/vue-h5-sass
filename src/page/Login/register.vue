@@ -6,7 +6,7 @@
       ref="ruleForm"
       label-width="100px"
       class="demo-ruleForm"
-      style="width: 400px;"
+      style="width: 90%;padding-top: 20px;"
     >
       <el-form-item label="手机号" prop="pass">
         <el-input type="text" v-model="ruleForm.phone" autocomplete="off" placeholder="手机号">

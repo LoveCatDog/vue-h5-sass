@@ -11,7 +11,7 @@
     </ul>
     <ul class="message-wrap">
       <li class="message-item" v-for="(item,index) in messageContentList" :key="index">
-        <p class="red-dot">
+        <p :class="['title',{'red-dot':item.isDot}]">
           {{item.name}}
           <van-icon name="arrow" class="icon icon-right" />
         </p>
@@ -80,6 +80,7 @@ export default {
         background: #dcdfe6;
         margin: 0 auto;
         position: relative;
+
         .dot {
           position: absolute;
           top: 0;
@@ -113,20 +114,28 @@ export default {
     text-align: left;
     .message-item {
       border-bottom: 1px solid #ebedf0;
-      padding: 0 10px;
+      padding: 0.3rem 10px 0.3rem 30px;
+
       .red-dot {
+        position: relative;
+
         &::before {
-          contain: "";
           position: absolute;
-          left: 0;
-          width: 2px;
-          height: 2px;
+          left: -14px;
+          width: 8px;
+          height: 8px;
+          content: "";
+          background: red;
+          border-radius: 50%;
+          top: 50%;
+          transform: translate(0, -50%);
         }
       }
       .icon-right {
         float: right;
       }
       .desc {
+        margin-top: 0.3rem;
       }
     }
   }

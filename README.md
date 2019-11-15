@@ -31,3 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 两种函数：
 1、Vue.beforeEach(function(to.from,next){});//在跳转之前执行
 2、Vue.AfterEach(function(to.from){});//在跳转之前判断
+
+vuex持久化：vuex-persistedstate
+vuex是在中大型项目中必不可少的状态管理组件，刷新会重新更新状态，但有时候希望固定到本地，减少无用接口访问，以及更佳的用户体验

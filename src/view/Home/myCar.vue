@@ -13,12 +13,12 @@
       >
         <div class="border"></div>
         <div class="content">
-          <p>
+          <p class="first-title">
             {{item.name}}
             <span>{{item.carNumber}}</span>
             <span>{{item.statu ?'异常':'正常'}}</span>
           </p>
-          <p>
+          <p class="last-title">
             类型：{{item.type}}
             <span>驾驶人：{{item.userName}}</span>
           </p>
@@ -107,7 +107,7 @@ export default {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      padding: 0 15px;
+      padding: 0.26rem;
       .border {
         width: 1rem;
         height: 1rem;
@@ -118,6 +118,9 @@ export default {
         flex: 1 1;
         text-align: left;
         margin-left: 0.5rem;
+        .first-title {
+          margin-bottom: 0.2rem;
+        }
       }
     }
   }

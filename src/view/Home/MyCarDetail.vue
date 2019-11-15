@@ -53,7 +53,7 @@ export default {
     -ms-flex-align: center;
     align-items: center;
     padding: 0 15px;
-    line-height: 0.5rem;
+    line-height: 1rem;
   }
   .btn-next {
     font-size: 0.4rem;

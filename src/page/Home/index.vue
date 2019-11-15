@@ -100,7 +100,7 @@ export default {
         {
           img: "https://img.yzcdn.cn/vant/apple-2.jpg",
           name: "借还款",
-          path: "mycar"
+          path: "lendrepay"
         },
         {
           img: "https://img.yzcdn.cn/vant/apple-3.jpg",
@@ -156,6 +156,9 @@ export default {
           height: 60px;
           border-radius: 8px;
         }
+        .nav-title {
+          padding: 0.3rem 0 0.2rem;
+        }
       }
     }
     // info
@@ -187,6 +190,8 @@ export default {
             }
             .desc {
               color: #999;
+              line-height: 0.5rem;
+              margin: 0.3rem 0 0.2rem;
               overflow: hidden; /*必须结合的属性,当内容溢出元素框时发生的事情*/
               text-overflow: ellipsis; /*可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。*/
               display: -webkit-box; /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/

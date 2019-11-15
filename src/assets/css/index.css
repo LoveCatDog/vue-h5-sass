@@ -83,7 +83,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
 }
 
@@ -104,6 +104,18 @@ section {
 
 body {
     line-height: 1;
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 750px;
+    height: 100%;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    background: #fff;
 }
 
 ol,
@@ -127,4 +139,11 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/* 公共样式 */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

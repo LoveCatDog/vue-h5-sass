@@ -1,10 +1,23 @@
 <template>
-  <div class="car-header">大道出行</div>
+  <div class="car-header">{{msg}}</div>
 </template>
+<script>
+export default {
+  name: "car-header",
+  data() {
+    return {};
+  },
+  props: {
+    msg: String
+  }
+};
+</script>
 <style lang="scss" scoped>
 .car-header {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   margin: 0 auto;
   line-height: 30px;
