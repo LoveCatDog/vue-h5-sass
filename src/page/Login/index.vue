@@ -36,7 +36,7 @@
         </router-link>
       </el-form>
     </div>
-    <p class="forget-password">忘记密码</p>
+    <p class="forget-password" @click="handleForget">忘记密码</p>
   </div>
 </template>
 <script>
@@ -65,6 +65,10 @@ export default {
     }
   },
   methods: {
+    //   忘记密码
+    handleForget() {
+      this.$router.openPage("/forget");
+    },
     // 获取验证码
     handleCode() {
       //获取验证码

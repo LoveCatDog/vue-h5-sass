@@ -3,12 +3,13 @@
     <header class="lend-wrap">
       <div class="flex">
         <p>
-          <span class="bold">借款金额：2500</span> 用途：油费
+          <span class="bold">借款金额：{{lendInfo.lendMoney}}</span>
+          用途：{{lendInfo.userFor}}
         </p>
         <van-button type="info" size="small">去还款</van-button>
       </div>
-      <p class="lend-time">借款时间：2019.12.28 10:00</p>
-      <p class="lend-time">剩余还款时间：12天23日13分</p>
+      <p class="lend-time">借款时间：{{lendInfo.lendTime}}</p>
+      <p class="lend-time">剩余还款时间：{{lendInfo.remainTime}}</p>
     </header>
     <div class="header-main">
       <div class="pre-btn btn" @click="handLendTo(1)">借钱</div>
@@ -33,6 +34,12 @@ export default {
   data() {
     return {
       name: "111",
+      lendInfo: {
+        lendMoney: "2500", //借款金额
+        userFor: "邮费", //邮费
+        lendTime: "2019-12-28 12:28:28", //借款时间
+        remainTime: null //剩余还款时间
+      },
       myCarList: [
         {
           id: "1",
@@ -64,7 +71,27 @@ export default {
       ]
     };
   },
+  mounted: function() {
+    let _this = this;
+    this.$nextTick(function() {
+      _this.getTime();
+      //   this.lendInfo.lendTime;
+    });
+  },
   methods: {
+    //   格式化时间
+    getTime: function() {
+      //   console.log(this._dayjs().format()); //获取当前时间
+      // 借款时间格式化
+
+      //   剩余还款时间
+      let lastTime = new Date(this.lendInfo.lendTime).getTime() - this._.now();
+      //   this.lendInfo.remainTime = RemainTime();
+      console.log("_.now()", this.lendInfo.lendTime);
+      this.lendInfo.lendTime = this._dayjs(this.lendInfo.lendTime).format(
+        " YYYY-MM-DD HH:mm:s"
+      );
+    },
     handleCarToDetail: function(carId) {
       this.$router.openPage("/mycar/" + carId);
     },

@@ -11,8 +11,8 @@ const localStorageStore = {
     // 定义状态
     state: {
         navTitle: JSON.parse(localStorage.getItem('navTitle')) || {},
-
         urlPath: JSON.parse(localStorage.getItem('urlPath')) || {}, //保存一个对象
+        cityName: localStorage.getItem('cityName') || '地位中', //保存一个城市名字
     },
     // 修改状态
     mutations: {
@@ -20,8 +20,10 @@ const localStorageStore = {
             state.urlPath = path
         },
         getNavTitle(state, value) {
-
             state.navTitle = value
+        },
+        getCityName(state, value) {
+            state.cityName = value;
         }
     }
 };

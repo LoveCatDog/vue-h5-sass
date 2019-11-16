@@ -8,7 +8,12 @@
       <van-icon name="arrow" class="header-icon" />
     </header>
     <ul class="menu-wrap">
-      <li class="menu-item" v-for="(item,index) in menuCarList" :key="index">
+      <li
+        class="menu-item"
+        v-for="(item,index) in menuCarList"
+        :key="index"
+        @click="handleToPath(item.path)"
+      >
         <div class="menu-img"></div>
         <p class="menu-title">{{item.name}}</p>
       </li>
@@ -40,18 +45,21 @@ export default {
         { name: "关于我们", rightConent: "" }
       ],
       menuCarList: [
-        { name: "我的车辆", id: 1, img: "" },
-        { name: "我的贷款", id: 1, img: "" },
-        { name: "我的学习", id: 1, img: "" },
-        { name: "我的油卡", id: 1, img: "" },
-        { name: "我的保险", id: 1, img: "" },
-        { name: "我的ETC", id: 1, img: "" }
+        { name: "我的车辆", id: 1, img: "", path: "" },
+        { name: "我的贷款", id: 1, img: "", path: "" },
+        { name: "我的学习", id: 1, img: "", path: "/my/study" },
+        { name: "我的油卡", id: 1, img: "", path: "" },
+        { name: "我的保险", id: 1, img: "", path: "" },
+        { name: "我的ETC", id: 1, img: "", path: "" }
       ]
     };
   },
   methods: {
     handleToUserInfo: function() {
       this.$router.openPage("/my/details/" + 1);
+    },
+    handleToPath: function(value) {
+      this.$router.openPage(value);
     }
   }
 };

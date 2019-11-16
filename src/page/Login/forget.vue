@@ -17,12 +17,12 @@
       <el-form-item label="验证码" prop="checkPass">
         <el-input type="text" v-model="ruleForm.password" autocomplete="off" placeholder="获取验证码"></el-input>
       </el-form-item>
-      <el-form-item label="登录密码" prop="checkPass">
+      <el-form-item label="新密码" prop="checkPass">
         <el-input
           type="password"
           v-model="ruleForm.newPassword"
           autocomplete="off"
-          placeholder="输入登录密码"
+          placeholder="输入新密码"
         ></el-input>
       </el-form-item>
       <el-form-item label="确认密码" prop="checkPass">
@@ -30,11 +30,11 @@
           type="password"
           v-model="ruleForm.phoneCode"
           autocomplete="off"
-          placeholder="确认登录密码"
+          placeholder="确认新密码"
         ></el-input>
       </el-form-item>
 
-      <el-button type="primary" @click="submitForm(ruleForm)" :disabled="isClick">注册</el-button>
+      <el-button type="primary" @click="submitForm(ruleForm)" :disabled="isClick">确认</el-button>
     </el-form>
   </div>
 </template>
@@ -66,25 +66,7 @@ export default {
     }
   },
   methods: {
-    submitForm: function() {
-      //点击发送
-      //   this.$axios
-      //     .post("/api/posts/sms_back", {
-      //       phone: value.phone,
-      //       code: value.verifyCode
-      //     })
-      //     .then(res => {
-      //       console.log(res);
-      //       localStorage.setItem("ele_login", true);
-      //       this.$router.push("/");
-      //     })
-      //     .catch(error => {
-      //       //返回错误信息
-      //       this.errors = {
-      //         code: error.response.data.msg
-      //       };
-      //     });
-    },
+    submitForm: function() {},
 
     // 获取验证码
     handleCode() {

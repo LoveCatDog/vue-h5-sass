@@ -3,7 +3,7 @@
     <div class="loading-bar" :class="nowStatus">
       <span class="press"></span>
     </div>
-    <CarHeader :msg="navTitle" />
+    <CarHeader :msg="navTitle" @ToGoBack="handleGoBlack" />
     <div class="app-init">
       <transition>
         <router-view></router-view>
@@ -42,6 +42,12 @@ export default {
     ...mapGetters(["nowStatus"]),
     navTitle() {
       return this.$store.state.localStorageStore.navTitle;
+    }
+  },
+  methods: {
+    handleGoBlack: function() {
+      //   console.log("点击返回上一个", this.$router);
+      window.history.go(-1);
     }
   }
 };

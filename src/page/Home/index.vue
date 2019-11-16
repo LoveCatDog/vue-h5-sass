@@ -6,7 +6,11 @@
       </van-swipe-item>
     </van-swipe>
     <div class="page-main">
-      <van-notice-bar text="张XXX在中山路段发出货车抛锚求援..." left-icon="volume-o" />
+      <van-notice-bar
+        text="张XXX在中山路段发出货车抛锚求援张XXX在中山路段发出货车抛锚求援..."
+        left-icon="volume-o"
+        :scrollable="true"
+      />
       <div class="five-nav-wrap">
         <ul class="nav-content">
           <li
@@ -25,7 +29,12 @@
       <div class="info-content">
         <p class="info-title">相关资讯</p>
         <ul class="info-wrap">
-          <li class="info-item" v-for="(item,index) in homeList" :key="index">
+          <li
+            class="info-item"
+            v-for="(item) in homeList"
+            :key="item.id"
+            @click="handlePolicyDetail(item.id)"
+          >
             <div class="info-left">
               <p class="title">{{item.title}}</p>
               <p class="desc">{{item.desc}}</p>
@@ -53,7 +62,9 @@ export default {
     return {
       homeList: [
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          id: "1",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           message: "236",
           time: "2019.02.23",
           title: "政策标题",
@@ -61,7 +72,9 @@ export default {
             "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          id: "2",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           message: "236",
           time: "2019.02.23",
           title: "政策标题",
@@ -69,7 +82,9 @@ export default {
             "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          id: "3",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           message: "236",
           time: "2019.02.23",
           title: "政策标题",
@@ -77,7 +92,9 @@ export default {
             "政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          id: "4",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           message: "236",
           time: "2019.02.23",
           title: "政策标题",
@@ -86,34 +103,39 @@ export default {
         }
       ],
       swiperList: [
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573552…0.hdslb.com%2Fbfs%2Farticle%2F1a2a2cd….png"
+        "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
+        "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
+        "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
+        "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675"
       ],
       navList: [
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           name: "我的车辆",
           path: "mycar"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-2.jpg",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           name: "借还款",
           path: "lendrepay"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-3.jpg",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           name: "二手车",
           path: "mycar"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-2.jpg",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           name: "学习培训",
           path: "mycar"
         },
         {
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          img:
+            "http://p0.ssl.cdn.btime.com/t01cbaf402033b0c2fb.jpg?size=1080x675",
           name: "休闲娱乐",
           path: "mycar"
         }
@@ -124,6 +146,10 @@ export default {
     //   跳转对应的路由地址
     handleToPath: function(path) {
       this.$router.openPage(path);
+      //   /policy/detail/:id
+    },
+    handlePolicyDetail: function(path) {
+      this.$router.openPage("/policy/detail/" + path);
     }
   }
 };

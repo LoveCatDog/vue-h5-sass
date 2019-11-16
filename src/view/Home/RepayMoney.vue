@@ -35,7 +35,6 @@
       <p class="repay-item">
         <span class="repay-label">付款方式：</span>
         <input type="text" @click="showPicker = true" :value="userForValue" />
-
         <van-popup v-model="showPicker" position="bottom">
           <van-picker
             show-toolbar

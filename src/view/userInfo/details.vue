@@ -10,7 +10,7 @@
     </div>
     <div class="userinfo-wrap">
       <van-cell-group>
-        <van-cell :value="item.rightConent" is-link v-for="item in cellList" :key="item">
+        <van-cell :value="item.rightConent" is-link v-for="(item,index) in cellList" :key="index">
           <!-- 使用 title 插槽来自定义标题 -->
           <!--  :style="{'border-bottom':item.id===5 && ' 10px solid'}" -->
           <template slot="title">

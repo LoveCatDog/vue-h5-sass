@@ -71,7 +71,10 @@ export default {
       this.$router.openPage(path);
     },
     isNavActive: function(name) {
-      return this.urlPath.indexOf(name) != -1;
+      if (this.urlPath) {
+        return this._.includes(this.urlPath, name);
+        // return this.urlPath.indexOf(name) != -1;
+      }
     }
   }
 };
@@ -85,7 +88,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10;
   .car-footer-ul {
     display: flex;
     align-items: center;
