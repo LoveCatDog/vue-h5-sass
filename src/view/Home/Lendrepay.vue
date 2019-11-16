@@ -29,6 +29,7 @@
   </div>
 </template>
 <script>
+import RemainTime, { linshi } from "@/ulits/ulits.js";
 export default {
   name: "lend-repay-main",
   data() {
@@ -84,10 +85,8 @@ export default {
       //   console.log(this._dayjs().format()); //获取当前时间
       // 借款时间格式化
 
-      //   剩余还款时间
-      let lastTime = new Date(this.lendInfo.lendTime).getTime() - this._.now();
-      //   this.lendInfo.remainTime = RemainTime();
-      console.log("_.now()", this.lendInfo.lendTime);
+      console.log("11");
+      console.log("_.now()", RemainTime(this.lendInfo.lendTime), linshi());
       this.lendInfo.lendTime = this._dayjs(this.lendInfo.lendTime).format(
         " YYYY-MM-DD HH:mm:s"
       );
